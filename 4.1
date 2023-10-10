@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char *argv[]) {
+	
+	char demana[100];
+	char resultat[100];
+	
+	strcpy (demana, "A/50/B/27/C/14/D/12/E/80");
+	
+
+	char name[20];
+	int age;
+	char *p=strtok(demana, "/");
+	
+	while (p!=NULL)
+	{
+		strcpy (name,p);
+		p=strtok(NULL, "/");
+		age=atoi(p);
+		if(age>18)
+			sprintf(resultat,"%s%s*%d-", resultat,name,age);
+		
+		p=strtok(NULL, "/");
+		
+	}
+	
+	resultat[strlen (resultat)]='\0';
+	printf("Resultat:%s\n",resultat);
+		
+}
